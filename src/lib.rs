@@ -11,8 +11,8 @@ pub use crate::{
     types::{
         request::{
             GetPostsData,
+            Order,
             OrderBy,
-			Order,
         },
         response::Post,
     },

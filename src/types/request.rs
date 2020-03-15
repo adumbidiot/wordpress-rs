@@ -9,7 +9,7 @@ use serde::{
     Serialize,
 };
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize, Serialize)]
 pub enum OrderBy {
     #[serde(rename = "author")]
     Author,
@@ -42,21 +42,22 @@ pub enum OrderBy {
     Title,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize, Serialize)]
 pub enum Order {
-	#[serde(rename = "asc")]
-	Ascending,
-	
-	#[serde(rename = "desc")]
-	Descending,
+    #[serde(rename = "asc")]
+    Ascending,
+
+    #[serde(rename = "desc")]
+    Descending,
 }
 
 impl Default for Order {
-	fn default() -> Self {
-		Self::Descending
-	}	
+    fn default() -> Self {
+        Self::Descending
+    }
 }
 
+#[derive(Clone)]
 pub struct GetPostsBuilder<'a> {
     client: &'a Client,
     data: GetPostsData<'a>,
@@ -99,16 +100,16 @@ impl<'a> GetPostsBuilder<'a> {
         self.data.categories = Some(category);
         self
     }
-	
-	pub fn order(mut self, order: Order) -> Self {
-		self.data.order = Some(order);
-		self
-	}
-	
-	pub fn offset(mut self, offset: u64) -> Self {
-		self.data.offset = Some(offset);
-		self
-	}
+
+    pub fn order(mut self, order: Order) -> Self {
+        self.data.order = Some(order);
+        self
+    }
+
+    pub fn offset(mut self, offset: u64) -> Self {
+        self.data.offset = Some(offset);
+        self
+    }
 
     pub fn get_path(&self) -> std::result::Result<String, serde_urlencoded::ser::Error> {
         let mut ret = String::from("/wp-json/wp/v2/posts?");
@@ -129,15 +130,15 @@ impl<'a> GetPostsBuilder<'a> {
     }
 }
 
-#[derive(Debug, Default, Deserialize, Serialize)]
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
 pub struct GetPostsData<'a> {
     pub context: Option<&'a str>,
     pub page: Option<u64>,
     pub per_page: Option<u8>, // Capped at 100
     pub search: Option<&'a str>,
     pub categories: Option<u64>,
-	pub order: Option<Order>,
-	pub offset: Option<u64>,
+    pub order: Option<Order>,
+    pub offset: Option<u64>,
 
     #[serde(rename = "orderby")]
     pub order_by: Option<OrderBy>,
