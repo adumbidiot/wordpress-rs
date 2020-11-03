@@ -13,4 +13,4 @@ serde_urlencoded = "0.7.0"
 url = { version = "2.1.1", features = [ "serde" ] }
 
 [dev-dependencies]
-tokio = { version = "0.2.13", features = [ "macros" ] }
+tokio = { version = "0.3.3", features = [ "macros" ] }
