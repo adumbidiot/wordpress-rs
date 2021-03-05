@@ -9,10 +9,7 @@ targets = [
 vulnerability = "deny"
 unmaintained = "deny"
 notice = "deny"
-ignore = [    
-    # blocked on tokio bumping mio to 0.7
-    "RUSTSEC-2020-0016",
-]
+ignore = []
 
 [licenses]
 unlicensed = "deny"
@@ -41,17 +38,7 @@ license-files = [
 [bans]
 multiple-versions = "deny"
 highlight = "all"
-skip = [
-    # Blocked on reqwest updating tokio to 0.3
-    { name = "winapi", version = "0.2.8" },
-    
-    # Blocked on tracing-futures bumping pin-project to 1.0.x
-    { name = "pin-project", version = "0.4.27" },
-    { name = "pin-project-internal", version = "0.4.27" },
-    
-    # Blocked on getrandom bumping cfg-if to 1.0.x
-    { name = "cfg-if", version = "0.1.10" }
-]
+skip = []
 
 # Mostly soundness denies since the advisory lacks a section for soundess bugs
 deny = [
