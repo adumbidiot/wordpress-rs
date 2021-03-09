@@ -1,24 +1,44 @@
-pub type Result<T> = std::result::Result<T, Error>;
+use std::result::Result as StdResult;
 
-#[derive(Debug)]
+/// Result Type
+///
+pub type Result<T> = StdResult<T, Error>;
+
+/// Error Type
+///
+#[derive(Debug, thiserror::Error)]
 pub enum Error {
-    Reqwest(reqwest::Error),
+    /// Reqwest HTTP Error
+    ///
+    #[error("{0}")]
+    Reqwest(#[from] reqwest::Error),
+
+    /// A path fragment was invalid
+    ///
+    #[error("invalid path fragment ({0})")]
     InvalidPathFragment(url::ParseError),
+
+    /// Invalid HTTP Status
+    ///
+    #[error("{0}")]
     InvalidStatus(reqwest::StatusCode),
-    Json(serde_json::Error),
+
+    /// Json Error
+    ///
+    #[error("{0}")]
+    Json(#[from] serde_json::Error),
+
+    /// Query String encode failed
+    #[error("{0}")]
     QueryEncode(serde_urlencoded::ser::Error),
 
+    /// Missing total header
+    ///
+    #[error("missing total header")]
     MissingTotal,
-}
 
-impl From<reqwest::Error> for Error {
-    fn from(e: reqwest::Error) -> Self {
-        Error::Reqwest(e)
-    }
-}
-
-impl From<serde_json::Error> for Error {
-    fn from(e: serde_json::Error) -> Self {
-        Error::Json(e)
-    }
+    /// Io Error
+    ///
+    #[error("{0}")]
+    Io(#[from] std::io::Error),
 }

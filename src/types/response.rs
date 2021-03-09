@@ -6,6 +6,8 @@ use serde::{
 use std::collections::HashMap;
 use url::Url;
 
+/// A wordpress post
+///
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Post {
     pub date: NaiveDateTime,
@@ -36,6 +38,8 @@ pub struct Post {
     pub categories: Option<Vec<u64>>,
     tags: Option<Vec<serde_json::Value>>,
 
+    /// Unknown KVs
+    ///
     #[serde(flatten)]
     pub unknown: HashMap<String, serde_json::Value>,
 }
@@ -44,6 +48,8 @@ pub struct Post {
 pub struct PostTitle {
     pub rendered: String,
 
+    /// Unknown KVs
+    ///
     #[serde(flatten)]
     pub unknown: HashMap<String, serde_json::Value>,
 }
@@ -53,6 +59,8 @@ pub struct PostContent {
     pub rendered: String,
     pub protected: bool,
 
+    /// Unknown KVs
+    ///
     #[serde(flatten)]
     pub unknown: HashMap<String, serde_json::Value>,
 }

@@ -10,11 +10,12 @@ pub use crate::{
     },
     types::{
         request::{
-            GetPostsData,
+            GetTypesData,
             Order,
             OrderBy,
         },
         response::Post,
+        List,
     },
 };
 
