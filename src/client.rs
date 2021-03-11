@@ -13,7 +13,7 @@ use url::Url;
 
 /// The Wordpress API client
 ///
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Client {
     /// The inner HTTP Client
     ///
