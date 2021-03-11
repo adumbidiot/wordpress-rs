@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["wordpress"] = [{"text":"impl Unpin for Client","synthetic":true,"types":[]},{"text":"impl Unpin for Error","synthetic":true,"types":[]},{"text":"impl Unpin for OrderBy","synthetic":true,"types":[]},{"text":"impl Unpin for Order","synthetic":true,"types":[]},{"text":"impl&lt;'a&gt; Unpin for GetTypesData&lt;'a&gt;","synthetic":true,"types":[]},{"text":"impl Unpin for Post","synthetic":true,"types":[]},{"text":"impl&lt;T&gt; Unpin for List&lt;T&gt; <span class=\"where fmt-newline\">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: Unpin,&nbsp;</span>","synthetic":true,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["wordpress"] = [{"text":"impl Freeze for Client","synthetic":true,"types":[]},{"text":"impl Freeze for Error","synthetic":true,"types":[]},{"text":"impl Freeze for OrderBy","synthetic":true,"types":[]},{"text":"impl Freeze for Order","synthetic":true,"types":[]},{"text":"impl&lt;'a&gt; Freeze for GetTypesData&lt;'a&gt;","synthetic":true,"types":[]},{"text":"impl Freeze for Post","synthetic":true,"types":[]},{"text":"impl&lt;T&gt; Freeze for List&lt;T&gt;","synthetic":true,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["wordpress"] = [{"text":"impl Clone for Client","synthetic":false,"types":[]},{"text":"impl Clone for OrderBy","synthetic":false,"types":[]},{"text":"impl Clone for Order","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Clone for GetTypesData&lt;'a&gt;","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["wordpress"] = [{"text":"impl Serialize for OrderBy","synthetic":false,"types":[]},{"text":"impl Serialize for Order","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Serialize for GetTypesData&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl Serialize for Post","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

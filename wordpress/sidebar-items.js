@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Error","Error Type"],["Order",""],["OrderBy",""]],"struct":[["Client","The Wordpress API client"],["GetTypesData",""],["List","A generic List Response"],["Post","A wordpress post"]],"type":[["Result","Result Type"]]});
